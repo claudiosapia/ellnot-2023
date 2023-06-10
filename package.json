@@ -5,10 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start": "node index.js",
-    "build": "npm run clean && npm run build-css && npm run build-js",
-    "build-css": "node-sass public/css/main.scss -o public/css",
-    "build-js": "browserify public/js/main.js -o public/js/bundle.js",
+    "build": "npm run clean",
     "clean": "rm -rf public/css/main.css public/js/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +15,5 @@
     "body-parser": "^1.19.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "node-sass": "^6.0.1"
   }
 }
