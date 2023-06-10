@@ -1,0 +1,143 @@
+<%- include('./head'); %>
+ <nav
+      class="navbar navbar-light navbar-expand-md fixed-top"
+      id="mainNav">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="#"
+          >Ellnot</a
+        ><button
+          data-bs-toggle="collapse"
+          class="navbar-toggler navbar-toggler-right"
+          data-bs-target="#navbarResponsive"
+          type="button"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          value="Menu">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarResponsive">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item nav-link">
+             <a <%if(active=="Home"){%>class="active nav-link link-top"<%} else{%>
+  class="nav-link link-top"
+ <%}%> href="/" >Home</a>
+            </li>
+   <li class="nav-item nav-link">
+             <a <%if(active=="Shop"){%>class="active nav-link link-top"<%} else{%>
+  class="nav-link link-top"
+ <%}%> href="/shop" >Shop</a>
+            </li>
+           
+            <li class="nav-item nav-link">
+             <a <%if(active=="About"){%>class="active nav-link link-top" <%} else{%>
+  class="nav-link link-top"
+ <%}%> href="/about">About</a>
+            </li>
+            <li class="nav-item nav-link">
+               <a <%if(active=="Contact"){%>class="active nav-link link-top"<%} else{%>
+  class="nav-link link-top"
+ <%}%> href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+   <section class="cart-section d-grid float-end ">
+            <div
+              class="cart-cont jumbotron jumbotron-fluid bg-transparent text-center"
+            >
+              <span class="shopping-cart-span-icon">
+                <i class="fas fa-shopping-cart"> </i></span>
+                <p class="mb-0 pb-0">Basket</p>
+                <p class="m-0 p-0" id="count"><span class="no-items">Items:</span> 0</p> 
+              
+
+              <section class="cart-content">
+                <div class="cart-row">
+                  <div class="cart-container"></div>
+                  <div class="cart-total">
+                    <strong>TOTAL:</strong>
+                    <span class="cart-total-amount mt-2">£0</span>
+                  </div>
+                  <!-- PAYPAL CHECKOUT -->
+
+                  <div id="paypal-button-container"></div>
+
+                  <script
+                    src="https://www.paypal.com/sdk/js?client-id=test&currency=USD&intent=capture&enable-funding=venmo"
+                    data-sdk-integration-source="integrationbuilder"
+                  ></script>
+                  <script>
+                    const paypalButtonsComponent = paypal.Buttons({
+                      // optional styling for buttons
+                      // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+                      style: {
+                        color: "gold",
+                        shape: "rect",
+                        label: "pay",
+                        layout: "vertical",
+                        width: "40px",
+                      },
+
+                      // set up the transaction
+                      createOrder: (data, actions) => {
+                        // pass in any options from the v2 orders create call:
+                        // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                        const createOrderPayload = {
+                          purchase_units: [
+                            {
+                              amount: {
+                                value: "88.44",
+                              },
+                            },
+                          ],
+                        };
+
+                        return actions.order.create(createOrderPayload);
+                      },
+
+                      // finalize the transaction
+                      onApprove: (data, actions) => {
+                        const captureOrderHandler = (details) => {
+                          const payerName = details.payer.name.given_name;
+                          console.log("Transaction completed");
+                        };
+
+                        return actions.order
+                          .capture()
+                          .then(captureOrderHandler);
+                      },
+
+                      // handle unrecoverable errors
+                      onError: (err) => {
+                        console.error(
+                          "An error prevented the buyer from checking out with PayPal"
+                        );
+                      },
+                    });
+
+                    paypalButtonsComponent
+                      .render("#paypal-button-container")
+                      .catch((err) => {
+                        console.error("PayPal Buttons failed to render");
+                      });
+                  </script>
+
+                  <!-- PAYPAL CHECKOUT END -->
+                </div>
+              </section>
+            </div>
+          </section>
+
+
+    </nav>
+ 
+ 
+  <!-- Navbar -->
+     
+
+
