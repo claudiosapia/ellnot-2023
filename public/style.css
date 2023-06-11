@@ -72,9 +72,24 @@
 }
 /* Make responsive */ 
 @media (max-width: 768px) {
-  .product-carousel {
-    width: 90%;
-  }
+.cart-cont {
+  margin-top: 6vh!important;
+}
+
+.masthead {
+  background-image:linear-gradient(
+      to left,
+      rgba(245, 246, 252, 0.17),
+      rgba(0, 0, 0, 0.795)
+    ), url('../public/assets/img/bg-1-cropped.jpg');
+  background-size: cover;
+  background-repeat: no-repeat; /* set the width and height */
+  background-attachment: fixed; /* set the background to be fixed */
+background-position: center;
+}
+
+
+
 .slider img {
   width: auto; 
   height:256px ;
