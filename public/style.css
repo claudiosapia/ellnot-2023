@@ -14,6 +14,7 @@
 /* HOME */
 
 .masthead {
+
   background-image: linear-gradient(
       to left,
       rgba(245, 246, 252, 0.17),
@@ -32,36 +33,61 @@
   border-color: var(--Crimson-red) !important;
 }
 
-/* CAROUSEL */
-.product-carousel {
-  width: 99%;
+/* SHOP */
+/* SLIDER */
+.slider {
+  max-width: 1200px;
   margin: 0 auto;
-  height: 100vh; /* Set a fixed height for the container */
+  background: #272727;
 }
-
-.slick-slide img {
-
-  height: 100vh;
-  object-fit: cover; /* Use object-fit: cover to scale the images proportionally */
+.slick-list {
+  margin: 5px !important;
 }
-
-.carousel-item {
-  height: 100%; /* Change height to 100% */
-  overflow: hidden;
-}
-
-
-
-/* Make slides take up equal width */ 
 .slick-slide {
-  height: 100%;
+  margin: 5px 0;
+}
+.slider img {
+  height: 620px;
+  width: auto;
 }
 
+
+
+
+/* Slider */
+.slick-loading .slick-list
+{
+    background: #fff url('https://image.flaticon.com/icons/png/128/786/786017.png') center center no-repeat;
+}
+
+.slick-slider
+{
+    margin-bottom: 30px;
+}
+/* SLICK CAROUSEL */
+
+
+.navbar-toggler-left {
+  order: -1; /* move the button to the beginning of the flex container */
+}
 /* Make responsive */ 
 @media (max-width: 768px) {
   .product-carousel {
     width: 90%;
   }
+.slider img {
+  width: auto; 
+  height:256px ;
+}
+.slider{
+    width: 256px !important; 
+  height: 256px !important; ;
+}
+
+  .navbar-collapse.show {
+    left: 0;
+  }
+
 }
 
 @media (max-width: 480px) {

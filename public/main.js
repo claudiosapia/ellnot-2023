@@ -1,6 +1,34 @@
 //JQUERY
 $(document).ready(function () {
   //CART
+ $(".slider").slick({
+   dots: false,
+   infinite: true,
+   speed: 500,
+   slidesToShow: 2,
+   slidesToScroll: 1,
+   autoplay: false,
+   autoplaySpeed: 2000,
+   arrows: true,
+   cssEase: "cubic-bezier(0.4, 0.08, 0.24, 0.66)",
+   responsive: [
+     {
+       breakpoint: 600,
+       settings: {
+         slidesToShow: 2,
+         slidesToScroll: 1,
+       },
+     },
+     {
+       breakpoint: 425,
+       settings: {
+         arrows: false,
+         slidesToShow: 1,
+         slidesToScroll: 1,
+       },
+     },
+   ],
+ });
   //if the document is still loading.
   if (document.readyState == "loading") {
     //wait for the entire HTML page to be parsed
